@@ -41,3 +41,17 @@ module.exports.updateItem = async(req, res, next) => {
         res.status(400).json({success: false, message: 'invalid'});
     }
 }
+
+module.exports.deleteItem = async(req, res, next) => {
+    try{
+        const {_id} = req.body;
+        if(_id){
+            const ress = await Item.findByIdAndDelete(_id);
+            res.status(200).json({success: true, message: ress});
+        }
+        else res.status(400).json({success: false, message: 'bro galat id mat do'});
+    }catch(err){
+        console.log(err);
+        res.status(400).json({success: false, message: 'patani delete nai hua'});
+    }
+}
