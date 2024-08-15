@@ -1,0 +1,118 @@
+/* header.jsx */
+nav{
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 9vh;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.logo{
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    font-weight: bold;
+    color: rgb(59,226,17);
+}
+.logo>p{
+    background: linear-gradient(90deg, rgba(59,226,17,1) 0%, rgba(90,198,31,1) 50%, rgba(74,136,81,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.buttons{
+    margin-right: 1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.navigation{
+    list-style-type: none;
+    color: #A4A3A3;
+    font-weight: lighter;
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+div.buttons{
+    display: flex;
+    width: max-content;
+    padding: 2px 5px;
+    width: max-content;
+    justify-content: center;
+    border: 1px solid #A4A3A3;
+    border-radius: 10px;
+}
+div>p{
+    padding: 0 10px;
+}
+
+.auth-button{
+    background: rgb(59,226,17);
+    background: linear-gradient(90deg, rgba(59,226,17,1) 0%, rgba(90,198,31,1) 50%, rgba(74,136,81,1) 100%);
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+/* footer.jsx */
+footer{
+    display: flex;
+    background: #252525;
+    height: 10vh;
+}
+svg{
+    height: 40px;
+}
+footer>a{
+    display: block;
+    margin: 8px auto;
+}
+.social-btn{
+    background: inherit;
+    border: none;
+    display: block;
+    padding: 0;
+}
+
+/* content.jsx */
+main{
+    box-sizing: border-box;
+    min-height: 76.3vh;
+}
+
+#greetings{
+    border: 1px solid #A4A3A3;
+    margin: 30px 10px;
+    padding: 2rem 1rem;
+    border-radius: 10px;
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 35%, rgba(73,172,118,1) 100%);
+}
+
+#todo-list{
+    border: 1px solid #A4A3A3;
+    margin: 30px 10px;
+    padding: 1rem 1rem;
+    border-radius: 10px;
+}
+#todo-header{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+}
+
+#add-todo{
+    background: #19BA2B;
+    border: none;
+    padding: 10px 1.5rem;
+    border-radius: 8px;
+    color: white;
+}
+
+#todo-list>p{
+    padding: 0;
+    color: #A4A3A3;
+    font-size: 0.9rem;
+}
