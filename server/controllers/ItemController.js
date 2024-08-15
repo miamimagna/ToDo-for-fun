@@ -12,7 +12,7 @@ module.exports.addItem = async (req, res, next) => {
         console.log(err);
         res.status(400).send({success: false, message: 'something is wrong in insertion'});
     }
-}
+} 
 
 module.exports.listItems = async(req, res, next) => {
     try{
