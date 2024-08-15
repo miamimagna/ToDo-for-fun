@@ -3,13 +3,26 @@ const app = express();
 const logger = require('morgan');
 const cookieParser= require('cookie-parser');
 require('dotenv').config();
+const mongoose = require('mongoose');
+const cors =require('cors');
+const ItemRouter = require('./routes/ItemRouter');
+
+mongoose.connect(process.env.MONGO_URL)
+    .then(() => console.log('database connected'));
 
 const port = process.env.PORT;
+
+app.use(cors({
+    origin: ['http://localhost:5173'], methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+    })
+);
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(logger('dev'));
 app.use(cookieParser());
+app.use('/api', ItemRouter);
 
 app.get('/', (req, res) => {
     res.send('hello world');
