@@ -18,3 +18,15 @@ button{
     font-size: 1rem;
   }
 }
+
+label, input{
+  display: block;
+  font: inherit;
+  margin: 0.7rem 0;
+}
+input{
+  padding: 5px 1rem;
+  border-radius: 10px;
+  border: 1px solid #A3A3A3;
+  width: 100%;
+}

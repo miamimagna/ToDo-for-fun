@@ -4,9 +4,10 @@ module.exports.addItem = async (req, res, next) => {
     try{
         var {title, desc, owner} = req.body;
         owner??='miamimagna';
-        const item = new Item({title, desc, owner});
+        const createdAt= new Date();
+        const item = new Item({title, desc, owner, createdAt});
         await item.save();
-        res.status(200).json({success: true, message: 'item added successfully'});
+        res.status(200).json({success: true, message: item});
         next();
     }catch(err){
         console.log(err);
