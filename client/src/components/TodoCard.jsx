@@ -88,7 +88,9 @@ const TodoCard = ({ itemOrig, handleDelete, handleChanges }) => {
                         name='desc'
                         value={formItem.desc}
                         onChange={handleChange}
-                        onKeyDown={handleKey}/>
+                        onKeyDown={handleKey}
+                        placeholder='description'
+                    />
                 }
             </div>
         </div>
