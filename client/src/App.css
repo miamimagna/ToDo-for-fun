@@ -224,3 +224,52 @@ form{
 .title-input{
     width: max-content;
 }
+
+
+/* Login css */
+.auth{
+    margin-bottom: 24.3vh;
+}
+.auth2{
+    margin-bottom: 17.9vh;
+}
+.auth-header{
+    background: linear-gradient(90deg, rgba(59,226,17,1) 0%, rgba(90,198,31,1) 50%, rgba(74,136,81,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: max-content;
+    margin: 25vh auto;
+    margin-bottom: 10px;
+}
+
+.auth-text{
+    color: #A4A3A3;
+    margin: 10px auto;
+    width: max-content;
+    font-size: 1.3rem;
+}
+.auth-alternate{
+    color: #36C06B;
+}
+
+
+.auth-submit{
+    background: #27A735;
+    border: none;
+    padding: 10px 1.5rem;
+    border-radius: 8px;
+    color: white;
+}
+
+.auth-entry, .auth-submit{
+    width: 30vw;
+    min-width: 300px;
+    display: block;
+    margin: 10px auto;
+}
+
+.auth-link{
+    color: inherit;
+    text-decoration: none;
+}

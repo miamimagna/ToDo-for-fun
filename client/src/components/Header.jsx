@@ -1,14 +1,14 @@
 import React from 'react'
-import { useState } from 'react';
-const Header = () => {
-  const [logged, setLogged] = useState(true)
-  const [signup, setSignup] = useState(true)
-  
+import { useNavigate } from 'react-router-dom';
+const Header = ({logged, signup}) => {
+  const navigate = useNavigate();
   function handleLogout(){
-    setLogged(false);
+    navigate('/login')
   }
   function toggleSignup(){
-    setSignup(!signup);
+    if(signup)
+      navigate('/login');
+    else navigate('/signup')
   }
 
   return (

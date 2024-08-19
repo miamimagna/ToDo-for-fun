@@ -3,7 +3,7 @@ import TodoService from '../services/TodoServices';
 import TodoCard from '../components/TodoCard';
 import AddTask from '../components/AddTask';
 
-const Content = ({ title }) => {
+const Content = ({ }) => {
   const owner = 'miamimagna';
   const [todoItems, setTodoItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -103,7 +103,7 @@ const Content = ({ title }) => {
 
   return (
     <main>
-      <h1 id='greetings'>Hello {title}.</h1>
+      <h1 id='greetings'>Hello {owner}.</h1>
       <div id="todo-list">
         <div id="todo-header">
           <h2>Your Todos</h2>
