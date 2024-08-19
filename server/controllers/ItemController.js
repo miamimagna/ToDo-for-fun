@@ -32,6 +32,7 @@ module.exports.listItems = async(req, res, next) => {
 module.exports.updateItem = async(req, res, next) => {
     try{
         const {_id, title, desc} = req.body;
+        console.log(req.body);
         if(_id && title.length > 0){
             const ress = await Item.findOneAndUpdate({_id}, {title, desc});
             res.status(200).json({success: true, message: ress});

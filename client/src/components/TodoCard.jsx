@@ -24,10 +24,29 @@ function calcDiff(createdAt) {
     return timeAgo;
 }
 
-const TodoCard = ({ item, handleDelete, handleChange }) => {
+const TodoCard = ({ itemOrig, handleDelete, handleChanges }) => {
+    var item = itemOrig? JSON.parse(JSON.stringify(itemOrig)): {};
     const { title, desc, createdAt } = item;
     const [timeDif, setTimeDif] = useState(() => calcDiff(createdAt));
-    const [editable, setEditable] = useState(false)
+    const [editable, setEditable] = useState(false);    
+    const [formItem, setFormItem] = useState(item);
+
+    function handleChange(e){
+        setFormItem({
+            ...formItem,
+            [e.target.name]: e.target.value
+        })
+    }
+    function editChange(){
+        if(editable){
+            handleChanges(formItem);
+        }
+        setEditable(!editable);
+    }
+    function handleKey(e){
+        if(e.key === 'Enter')
+            editChange();
+    }
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -38,7 +57,8 @@ const TodoCard = ({ item, handleDelete, handleChange }) => {
     }, [createdAt]);
 
     return (
-        <div className='todo-item'>
+        <>
+        <div key={item._id} className='todo-item'>
             <div className="header">
                 <div className="todo-details">
                     {!editable? 
@@ -47,21 +67,32 @@ const TodoCard = ({ item, handleDelete, handleChange }) => {
                             className='title-input' 
                             type="text" 
                             name='title' 
-                            value={item.title} 
-                            onChange={(e) => handleChange(e, 'title', item)}
+                            value={formItem.title} 
+                            onChange={handleChange}
+                            onKeyDown={handleKey}
                           />
                     }
                     <p className='create-time'>{timeDif}</p>
                 </div>
                 <div className="todo-buttons">
-                    <button className="todo-btn" onClick={() => setEditable(!editable)}>Edit</button>
+                    <button className="todo-btn" onClick={editChange}>Edit</button>
                     <button className="todo-btn delete" onClick={handleDelete}>Delete</button>
                 </div>
             </div>
             <div className="desc">
-                <p>{desc}</p>
+                {!editable?
+                    <p>{desc}</p>
+                    : <input 
+                        className='desc-input'
+                        type='text'
+                        name='desc'
+                        value={formItem.desc}
+                        onChange={handleChange}
+                        onKeyDown={handleKey}/>
+                }
             </div>
         </div>
+        </>
     );
 }
 

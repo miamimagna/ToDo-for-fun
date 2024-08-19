@@ -18,7 +18,7 @@ const AddTask = ({setVisible, handleSubmit, taskValues, onChange}) => {
             <input type="text" name='title' value={title} onChange={onChange} placeholder='title' minLength={2} required/>
         </div>
         <div className="task-desc">
-            <label htmlFor="task-desc">Description</label>
+            <label htmlFor="desc">Description</label>
             <input type="text" name='desc' value={desc} onChange={onChange} placeholder='description' />
         </div>
         <button type="submit" className='add-task-submit submit'>Add Task</button>

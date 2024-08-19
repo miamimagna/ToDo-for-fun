@@ -25,7 +25,7 @@ const Content = ({ title }) => {
     const fetchTodos = async () => {
       try {
         const res = await TodoService.get({ owner });
-        setTodoItems(res.message);
+        setTodoItems(res.message.splice(0));
       } catch (err) {
         setError('Failed to load todos.');
         console.error(err);
@@ -47,18 +47,19 @@ const Content = ({ title }) => {
       console.log(err);
     }
   }
-  const handleItemChange = async (e, prop, item) => {
+  const handleItemChange = async (item) => {
     const x = {
-      ...item,
-      [prop]: e.target.value
+      ...item
     };
-    setTodoItems(todoItems.map((i) => {
+    const obj = todoItems.map((i) => {
       if(item._id !== i._id)
         return i;
       else {
         return x;
       }
-    }));
+    });
+    setTodoItems(obj);
+    TodoService.update(item);
   }
 
   const handleSubmit = async (e) => {
@@ -92,7 +93,7 @@ const Content = ({ title }) => {
   return todoItems.length ? (
     <div className="todo-list-container">
       {todoItems.map((item) => (
-        <TodoCard key={item._id} item={item} handleDelete={() => handleDelete(item._id)} handleChange={handleItemChange}/>
+        <TodoCard key={item._id} itemOrig={item} handleDelete={() => handleDelete(item._id)} handleChanges={handleItemChange}/>
       ))}
     </div>
   ) : (
