@@ -17,15 +17,20 @@ module.exports.addItem = async (req, res, next) => {
 
 module.exports.listItems = async(req, res, next) => {
     try{
+        console.log(req.body.details);
+        const {username}  = req.body.details;
         const {owner} = req.body;
-        if(owner){
+        if(owner && owner === username){
             const items = await Item.find({owner}).select('title desc createdAt').exec();
-            res.status(200).json({success: true, message: items});
+            return res.status(200).json({success: true, message: items});
         }
-        else res.status(400).json({success: false, message: 'not correct id'});
+        if(owner !== username){
+            return res.status(401).json({success: false, message: 'you don\'t seem owner here'})
+        }
+        else return res.status(400).json({success: false, message: 'not correct id'});
     }catch(err) {
         console.log(err);
-        res.status(400).json({success: false, message: 'not listed'});
+        return res.status(400).json({success: false, message: 'not listed'});
     }
 }
 

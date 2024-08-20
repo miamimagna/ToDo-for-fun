@@ -1,4 +1,4 @@
-const public =`-----BEGIN PUBLIC KEY-----
+const Public =`-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyARjfPrqx7jxBW2UZ9jx
 Tp6KCYX28mqY6OJMXKIjRHmXmk+3ygyM+A9iTTkuM6iqT8Bh8yHkesr+kossLkV9
 T49EvfXSKG7rjX4fhF/pIFVuDF0yHPUHFhzM7bkLt8Qv3Hm++YJ/lEdWvlmKF2j2
@@ -9,4 +9,4 @@ twIDAQAB
 -----END PUBLIC KEY-----
 `;
 
-export default public;
+export default Public;
