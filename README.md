@@ -1,6 +1,4 @@
-# Live Website Link
-[here](https://todo-deploy-4hf7.onrender.com/)
-# features
+# Features
 This todo list provides the crud working, along with encryption and jwt authentication,
 # installation
 1. just clone the repository
