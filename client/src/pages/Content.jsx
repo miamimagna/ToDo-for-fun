@@ -92,6 +92,7 @@ const Content = ({ }) => {
   }
 
   if (error) {
+    navigate('/login');
     return <p>{error}</p>;
   }
 
