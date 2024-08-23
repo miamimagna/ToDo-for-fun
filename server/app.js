@@ -14,7 +14,7 @@ const port = process.env.PORT;
 
 app.use(cors({ 
     origin: ['https://todo-for-fun-1.onrender.com/'], methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true,
+    credentials: true, 
     })
 );
 
