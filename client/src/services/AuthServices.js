@@ -28,6 +28,18 @@ const AuthService = {
             console.log(err);
             throw err;
         }
+    }, 
+    update: async({username, password, newName, newPassword}) => {
+        try {
+            const res = await axios.post(AUTH_URL + '/update', {
+                username, password, newName, newPassword,
+                withCredentials: true
+            });
+            return res;
+        } catch (err) {
+            console.log(err);
+            throw err;
+        }
     }
 }
 

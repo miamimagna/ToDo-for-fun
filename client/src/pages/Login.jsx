@@ -50,28 +50,42 @@ const Login = () => {
     <p className='auth-text'>Or <span className='auth-alternate'><Link className='auth-link' to='/signup'>Create an account.</Link></span></p>
     <form className='auth' onSubmit={handleSubmit(onSubmit)}>
       {invalidEntry && <p className='error-message'>Invalid username or Password</p>}
-      {errors.username && <p className='error-message'>username must be of 6 letter</p>}
-      {errors.password && <p className="error-message">password must be of 6 letters</p>}
+      {errors.username && <p className='error-message'>{errors.username.message}</p>}
+      {!errors.username && errors.password && <p className="error-message">{errors.password.message}</p>}
         <input type="text" 
                className="auth-entry" 
                placeholder='username'
                {...register('username', {
-                required: true,
+                required: {
+                  value: true,
+                  message: 'field required'
+                },
                 minLength: {
                   value: 6,
-                  message: 'Atleast 6 letters required for username'
-                }
+                  message: '6-20 letters required for username'
+                },
+                maxLength: {
+                  value: 20,
+                  message: '6-20 letters required for username'
+                },
                })}
         />
         <input type="password" 
                className="auth-entry" 
                placeholder='password'
                {...register('password', {
-                required: true,
+                required: {
+                  value: true,
+                  message: 'field required'
+                },
                 minLength: {
                   value: 6,
-                  message: 'Atleast 6 letters required for password'
-                }
+                  message: '6-20 letters required for password'
+                },
+                maxLength: {
+                  value: 20,
+                  message: '6-20 letters required for password'
+                },
                })}
         />
         <button className='auth-submit' type="submit">Login</button>

@@ -98,23 +98,38 @@ module.exports.Update = async(req, res, next) => {
             message: 'invalid details entered'
             });
         // find the user, if not send error
-        const user = await User.findOne({username}).exec();
+        const user = await User.findOne({username: username.trim()}).exec();
+        console.log({username: username.trim()})
         if(!user) 
             return res.status(400).json({
             success: false,
-            message: 'invalid details entered'
+            message: 'invalid details entered 2'
             });
         // verify password
         const isValid = await bcrypt.compare(password, user.password);
         if(!isValid)
             return res.status(400).json({
             success: false,
-            message: 'invalid details entered'
+            message: 'invalid details entered 3'
             });
         // update
         const hashPwd = await bcrypt.hash(newPassword, parseInt(process.env.BCRYPT_SALT));
-        const ress = await User.findByIdAndUpdate(user._id, {username: newName, password: hashPwd});
-        res.status(200).json(ress);
+        const ress = await User.findByIdAndUpdate(user._id, {name: newName, password: hashPwd});
+        const token = jwt.sign({username, name: newName}, 
+                                process.env.JWT_PRIVATE, 
+                                {
+                                    algorithm: 'RS256', 
+                                    expiresIn: '1d'
+                                });    
+        
+        res.cookie('token', token, {
+            withCredetials: true, 
+            httpOnly: false,
+        });
+        res.status(200).json({
+            success: true,
+            message: token
+        });
     }catch(err){
         console.log(err);
         res.status(400).json({

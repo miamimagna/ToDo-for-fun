@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken');
 module.exports = AuthChecker= async(req, res, next) => {
     try{
         const token = req.cookies.token;
-        console.log(req.cookies);
         const isValid = jwt.verify(token, process.env.JWT_PRIVATE);
         if(!isValid)
             throw new Error('something seems wrong');

@@ -12,7 +12,7 @@ mongoose.connect(process.env.MONGO_URL)
     .then(() => console.log('database connected'));
 const port = process.env.PORT;
 
-app.use(cors({
+app.use(cors({ 
     origin: ['http://localhost:5173'], methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
     })

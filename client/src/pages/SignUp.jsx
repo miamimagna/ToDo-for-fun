@@ -62,33 +62,54 @@ const SignUp = () => {
                className="auth-entry" 
                placeholder='username'
                {...register('username', {
-                required: true,
+                required: {
+                  value: true,
+                  message: 'field required'
+                },
                 minLength: {
                   value: 6,
-                  message: 'Atleast 6 letters required for username'
-                }
+                  message: '6-20 letters required for username'
+                },
+                maxLength: {
+                  value: 20,
+                  message: '6-20 letters required for username'
+                },
                })}
         />
         <input type="text" 
                className="auth-entry" 
                placeholder='name'
                {...register('name', {
-                required: true,
+                required: {
+                  value: true,
+                  message: 'field required'
+                },
                 minLength: {
                   value: 6,
-                  message: 'Atleast 6 letters required for name'
-                }
+                  message: '6-20 letters required for name'
+                },
+                maxLength: {
+                  value: 20,
+                  message: '6-20 letters required for name'
+                },
                })}
         />
         <input type="password" 
                className="auth-entry" 
                placeholder='password'
                {...register('password', {
-                required: true,
+                required: {
+                  value: true,
+                  message: 'field required'
+                },
                 minLength: {
                   value: 6,
-                  message: 'Atleast 6 letters required for password'
-                }
+                  message: '6-20 letters required for password'
+                },
+                maxLength: {
+                  value: 20,
+                  message: '6-20 letters required for password'
+                },
                })}
         />
         <button className='auth-submit' type="submit">Login</button>
