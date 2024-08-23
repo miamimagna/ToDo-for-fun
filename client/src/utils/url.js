@@ -1,2 +1,2 @@
-const url = 'http://localhost:4000';
+const url = 'https://todo-for-fun.onrender.com';
 export default url;
