@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGO_URL)
 const port = process.env.PORT;
 
 app.use(cors({ 
-    origin: ['http://localhost:5173'], methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    origin: ['https://todo-for-fun-1.onrender.com/'], methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
     })
 );
