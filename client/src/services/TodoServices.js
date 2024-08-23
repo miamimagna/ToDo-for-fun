@@ -1,6 +1,7 @@
 import axios from 'axios'; 
 import url from "../utils/url";
 
+axios.defaults.withCredentials = true;
 const API_URL = url + '/api';
 
 const TodoService = {

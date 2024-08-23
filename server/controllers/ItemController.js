@@ -20,6 +20,7 @@ module.exports.listItems = async(req, res, next) => {
         console.log(req.body.details);
         const {username}  = req.body.details;
         const {owner} = req.body;
+        
         if(owner && owner === username){
             const items = await Item.find({owner}).select('title desc createdAt').exec();
             return res.status(200).json({success: true, message: items});
